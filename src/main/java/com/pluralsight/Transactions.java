@@ -54,4 +54,6 @@ public class Transactions {
     public void setAmount(float amount) {
         this.amount = amount;
     }
+
+    //public void combine variables to display on print screen
 }
