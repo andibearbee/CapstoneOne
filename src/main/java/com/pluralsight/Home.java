@@ -1,11 +1,13 @@
 package com.pluralsight;
 import java.io.*;
+import java.text.DecimalFormat;
 import java.util.*;
 import java.time.*;
 public class Home {
     public static Scanner scanner = new Scanner(System.in);
+    public static DecimalFormat df = new DecimalFormat("0.00");
 
-    //public static DateTimeFormatter dtf =
+    //need to save dates input from the user in a way the computer can sort them -- public static DateTimeFormatter dtf = DateTimeFormatter.ofPattern (YYYY-MM-DD)
 
     public static void main(String[] args) {
         boolean appRunning = true;
@@ -83,12 +85,14 @@ public class Home {
             System.out.println("What's the amount? ");
             float amount = scanner.nextFloat();
             scanner.nextLine();
+            amount *= -1;
+            String amountDF =df.format(amount);
 
 
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("src/main/resources/transaction.csv", true));
 
 
-            bufferedWriter.write(date + "|" + time + "|" + description + "|" + vendor + "|" + amount);
+            bufferedWriter.write(date + "|" + time + "|" + description + "|" + vendor + "|" + amountDF);
             bufferedWriter.newLine();
             bufferedWriter.close();
         }
@@ -96,15 +100,5 @@ public class Home {
             error.printStackTrace();
         }
     }
-
-
-
-
-
-
-   // readTransactions();
-     //               for (String hashKey : transLedger.keySet()) {
-       //                     System.out.println(transLedger.get(hashKey).getDate() + transLedger.get(hashKey).getTime() + transLedger.get(hashKey));
-
 
 }

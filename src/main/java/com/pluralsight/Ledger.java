@@ -32,3 +32,6 @@ public class Ledger {
         }
     }
 }
+// readTransactions();
+//               for (String hashKey : transLedger.keySet()) {
+//                     System.out.println(transLedger.get(hashKey).getDate() + transLedger.get(hashKey).getTime() + transLedger.get(hashKey));
