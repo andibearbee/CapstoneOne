@@ -2,7 +2,10 @@ package com.pluralsight;
 import static com.pluralsight.HomeFunctions.*;
 import static com.pluralsight.CSVReader.readTransactions;
 import static com.pluralsight.LedgerFunctions.*;
-
+/*
+This is the main menu. From here users will be able to navigate through the app and complete different actions.
+Such as adding to the transaction history and viewing their history.
+ */
 
 public class AccLedgerApp {
     public static void main(String[] args) {
@@ -48,8 +51,8 @@ public class AccLedgerApp {
     public static void ledgerScreen() {
         //switch statement to allow for user choice
         System.out.println("Welcome to your Ledger, which transaction history would you like to view?" +
-                "\n A: Display all transactions " +
-                "\n D: Display all deposits " +
+                "\n A: Display All transactions " +
+                "\n D: Display deposits history " +
                 "\n P: Display payment history " +
                 "\n R: Search my Reports" +
                 "\n H: Return to Home");
@@ -70,16 +73,52 @@ public class AccLedgerApp {
             case "H": homeScreen();
                 break;
             default:
-                System.out.println("Not a viable entry. Please choose one of the following");
+                System.out.println("Not a viable entry. Please choose one of the following: A, D, P, R, or H.");
         }
 
 
+    }
+
+
+        public static void reportsScreen () {
+            //switch statement to allow for user choice
+            System.out.println("Welcome to your Reports, how would you like to view?" +
+                    "\n M: Month to Date " +
+                    "\n PM: Previous Month" +
+                    "\n Y: Year to Date" +
+                    "\n PY: Previous Year" +
+                    "\n V: Search by Vendor" +
+                    "\n B: Back to Reports" +
+                    "\n H: Home Screen");
+
+            String ledgerAction = scanner.nextLine().toUpperCase().trim();
+            switch (ledgerAction) {
+                case "M":
+                    //monthToDate();
+                    break;
+                case "PM":
+                    //previousMonth();
+                    break;
+                case "Y":
+                    //yearToDate();
+                    break;
+                case "PY":
+                    //previousYear();
+                    break;
+                case "V":
+                    //searchByVendor();
+                    break;
+                case "B":
+                    //backToReports
+                    break;
+                case "H": homeScreen();
+                    break;
+                default:
+                    System.out.println("Not a viable entry. Please choose one of the following: M, PM, Y, PY, V, B, or H. ");
+            }
+
+
+
         }
-
-
-//        public static void reportScreen (String ) {
-//
-//        }
-//    }
     }
 
