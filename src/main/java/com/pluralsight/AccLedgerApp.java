@@ -2,6 +2,7 @@ package com.pluralsight;
 import static com.pluralsight.HomeFunctions.*;
 import static com.pluralsight.CSVReader.readTransactions;
 import static com.pluralsight.LedgerFunctions.*;
+import static com.pluralsight.ReportsScreenFunctions.*;
 /*
 This is the main menu. From here users will be able to navigate through the app and complete different actions.
 Such as adding to the transaction history and viewing their history.
@@ -60,7 +61,7 @@ public class AccLedgerApp {
         String ledgerAction = scanner.nextLine().toUpperCase().trim();
         switch (ledgerAction) {
             case "A":
-                displayLedger();
+                //displayLedger();
                 break;
             case "D":
                 displayDeposits();
@@ -68,7 +69,8 @@ public class AccLedgerApp {
             case "P":
                 displayPayments();
                 break;
-            case "R": //reportsScreen();
+            case "R":
+                reportsScreen();
                 break;
             case "H": homeScreen();
                 break;
@@ -91,10 +93,10 @@ public class AccLedgerApp {
                     "\n B: Back to Reports" +
                     "\n H: Home Screen");
 
-            String ledgerAction = scanner.nextLine().toUpperCase().trim();
-            switch (ledgerAction) {
+            String reportsAction = scanner.nextLine().toUpperCase().trim();
+            switch (reportsAction) {
                 case "M":
-                    //monthToDate();
+                    monthToDate();
                     break;
                 case "PM":
                     //previousMonth();
@@ -106,12 +108,10 @@ public class AccLedgerApp {
                     //previousYear();
                     break;
                 case "V":
-                    //searchByVendor();
+                    searchByVendor();
                     break;
-                case "B":
-                    //backToReports
-                    break;
-                case "H": homeScreen();
+                case "H":
+                    homeScreen();
                     break;
                 default:
                     System.out.println("Not a viable entry. Please choose one of the following: M, PM, Y, PY, V, B, or H. ");

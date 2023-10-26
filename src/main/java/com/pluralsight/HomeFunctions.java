@@ -1,6 +1,7 @@
 package com.pluralsight;
 import java.io.*;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 public class HomeFunctions {
@@ -14,7 +15,7 @@ public class HomeFunctions {
     public static void addDeposit() {
         try {
         System.out.println("What date did you make deposit? YYYY-MM-DD");
-        String date = scanner.next();
+        LocalDate date = LocalDate.parse(scanner.next());
 
         System.out.println("What was the time? HH:MM");
         String time = scanner.next();
@@ -45,7 +46,7 @@ public class HomeFunctions {
     public static void addPayment() {
         try {
             System.out.println("What date did you make the purchase? YYYY-MM-DD");
-            String date = scanner.next();
+            LocalDate date = LocalDate.parse(scanner.next());
 
             System.out.println("What was the time? HH:MM");
             String time = scanner.next();
@@ -67,7 +68,7 @@ public class HomeFunctions {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("src/main/resources/transaction.csv", true));
 
 
-            bufferedWriter.write(date + "|" + time + "|" + description + "|" + vendor + "|" + amountDF);
+            bufferedWriter.write(date + "|" + time + "|" + description + "|" + vendor + "|" + amountDF + "\n");
             bufferedWriter.newLine();
             bufferedWriter.close();
         }
@@ -76,7 +77,7 @@ public class HomeFunctions {
         }
     }
 
+}
 
-    }
 
 
